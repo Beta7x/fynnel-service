@@ -1,0 +1,47 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Web service for Fynnel app",
+  "keywords": [
+    "Tunnel"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "github.com/Beta7x/Fynnel-backend"
+  },
+  "license": "MIT",
+  "author": "Beta7x",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "node esbuild.config.js",
+    "test": "jest",
+    "container:db": "docker-compose -f docker-compose.db.yml up",
+    "container:dev": "docker-compose -f docker-compose.dev.yml up --build",
+    "container:staging": "docker-compose -f docker-compose.staging.yml up --build",
+    "container:prod": "docker-compose -f docker-compose.prod.yml up --build"
+  },
+  "prisma": {
+    "schema": "./src/infrastructure/database/prisma/schema.prisma"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/newrelic": "^9.14.8",
+    "esbuild": "^0.25.10",
+    "eslint": "^9.37.0",
+    "prisma": "^6.16.2",
+    "typescript": "^5.9.2",
+    "ws": "^8.18.3"
+  },
+  "dependencies": {
+    "@newrelic/winston-enricher": "^4.0.1",
+    "@prisma/client": "^6.16.2",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "newrelic": "^13.3.3",
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.10.0",
+    "winston": "^3.17.0"
+  }
+}
